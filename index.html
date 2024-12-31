@@ -6,79 +6,114 @@
     <title>Lisa Shih - Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.8;
         }
         header {
-            background-color: #2b3a67;
-            color: white;
-            padding: 20px 10%;
+            background: linear-gradient(135deg, #002a47, #003d61);
+            color: #58a6ff;
+            padding: 50px 10%;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #8b949e;
         }
         nav {
             display: flex;
             justify-content: center;
-            padding: 10px;
-            background-color: #3a497c;
+            background-color: #161b22;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         nav a {
-            color: white;
+            color: #58a6ff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
+            font-size: 1rem;
             font-weight: bold;
+            transition: color 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #79c0ff;
         }
         section {
-            padding: 40px 10%;
+            padding: 60px 10%;
+            margin: 0 auto;
+            max-width: 1200px;
+            border-left: 2px solid #003d61;
+            border-right: 2px solid #003d61;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #79c0ff;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
         }
         .card {
-            background: white;
+            background: #161b22;
             margin: 20px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
         .card h3 {
-            margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #58a6ff;
         }
-        .card p {
-            margin: 10px 0;
+        .card ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: square;
         }
         .skills {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-evenly;
         }
         .skill {
-            background: #2b3a67;
-            color: white;
+            background: linear-gradient(135deg, #003d61, #58a6ff);
+            color: #ffffff;
             padding: 10px 20px;
             margin: 10px;
             border-radius: 50px;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .presentation {
             margin-top: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            text-align: center;
         }
         .presentation img {
             max-width: 100%;
             height: auto;
-            display: block;
-            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #2b3a67;
-            color: white;
-            margin-top: 20px;
+            background-color: #161b22;
+            color: #8b949e;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            border-top: 2px solid #003d61;
         }
     </style>
 </head>
@@ -97,22 +132,43 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi! I’m Lisa, a results-driven digital marketing specialist with expertise in branding, performance advertising, and data analytics. Over the years, I’ve helped brands like Ferrero and Gigabyte achieve measurable success through creative strategies and data-driven insights.</p>
+        <p>Hi! I’m Lisa, a results-driven digital marketing specialist with expertise in:</p>
+        <ul>
+            <li>Branding and performance advertising.</li>
+            <li>Data analytics and campaign optimization.</li>
+            <li>Collaborating with global brands like Ferrero and Gigabyte to achieve measurable success.</li>
+        </ul>
     </section>
 
     <section id="experience">
         <h2>Experience</h2>
         <div class="card">
             <h3>Digital Account Manager | Taipei</h3>
-            <p>Managed Gigabyte’s global advertising campaigns across 12 markets. Communicated with clients to optimize A/B testing materials and ensured that CPC (link) was maintained at $0.13. Automated workflows using AppScript and created BigQuery and Looker Studio dashboards for real-time analytics. Utilized Python to identify key metric correlations, enhancing campaign efficiency.</p>
+            <ul>
+                <li>Managed Gigabyte’s global advertising campaigns across 12 markets.</li>
+                <li>Communicated with clients to optimize A/B testing materials.</li>
+                <li>Maintained CPC (link) at $0.13.</li>
+                <li>Automated workflows using AppScript and created BigQuery and Looker Studio dashboards.</li>
+                <li>Utilized Python to identify key metric correlations, enhancing campaign efficiency.</li>
+            </ul>
         </div>
         <div class="card">
             <h3>Brand Advertising Consultant | Brain Blockchain</h3>
-            <p>Developed and executed Facebook conversion ads and implemented Google Tag Manager for precise tracking. Achieved 28 high-value course purchases within a week, while maintaining DAU above 0.95. Strategized high-ROI campaigns to maximize audience engagement and conversion rates.</p>
+            <ul>
+                <li>Developed and executed Facebook conversion ads.</li>
+                <li>Implemented Google Tag Manager for precise tracking.</li>
+                <li>Achieved 28 high-value course purchases within a week.</li>
+                <li>Maintained DAU above 0.95 through targeted advertising strategies.</li>
+            </ul>
         </div>
         <div class="card">
             <h3>Advertising Optimization Specialist | iProspect</h3>
-            <p>Handled multi-channel advertising for FMCG, luxury, and whiskey brands. Created automated dashboards for internal industry analysis, providing supervisors with actionable insights to guide strategic decisions. Enhanced campaign ROI through a blend of creative and data-driven approaches.</p>
+            <ul>
+                <li>Handled multi-channel advertising for FMCG, luxury, and whiskey brands.</li>
+                <li>Created automated dashboards for internal industry analysis.</li>
+                <li>Provided supervisors with actionable insights to guide strategic decisions.</li>
+                <li>Enhanced campaign ROI through a blend of creative and data-driven approaches.</li>
+            </ul>
         </div>
     </section>
 
@@ -120,7 +176,11 @@
         <h2>Projects</h2>
         <div class="card">
             <h3>Gigabyte Project</h3>
-            <p>Reduced CPC by 20% through precise targeting and real-time optimization. Created global advertising strategies tailored to 12 distinct markets and automated analytics to monitor performance effectively.</p>
+            <ul>
+                <li>Reduced CPC by 20% through precise targeting and real-time optimization.</li>
+                <li>Created global advertising strategies tailored to 12 distinct markets.</li>
+                <li>Automated analytics to monitor performance effectively.</li>
+            </ul>
             <div class="presentation">
                 <h4>Project Dashboard</h4>
                 <img src="gigabyte_project.png" alt="Gigabyte Project Dashboard">
@@ -128,7 +188,11 @@
         </div>
         <div class="card">
             <h3>Brain Blockchain Project</h3>
-            <p>Designed and executed Facebook conversion ads, achieving exceptional ROAS within a week. Implemented tracking with Google Tag Manager and developed creative materials tailored to blockchain enthusiasts.</p>
+            <ul>
+                <li>Designed and executed Facebook conversion ads, achieving exceptional ROAS within a week.</li>
+                <li>Implemented tracking with Google Tag Manager.</li>
+                <li>Developed creative materials tailored to blockchain enthusiasts.</li>
+            </ul>
             <div class="presentation">
                 <h4>Project Dashboard</h4>
                 <img src="brain_blockchain_project.png" alt="Brain Blockchain Project Dashboard">
@@ -146,13 +210,17 @@
             <div class="skill">Looker Studio</div>
             <div class="skill">Google Ads</div>
             <div class="skill">Facebook Ads</div>
+            <div class="skill">Cross-functional Collaboration</div>
+            <div class="skill">Creative Optimization</div>
         </div>
     </section>
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <p>Email: shihyihua9604@gmail.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/lisa-shih" target="_blank">linkedin.com/in/lisa-shih</a></p>
+        <ul>
+            <li>Email: shihyihua9604@gmial.com</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/lisa-shih" target="_blank">linkedin.com/in/lisa-shih</a></li>
+        </ul>
     </section>
 
     <footer>
