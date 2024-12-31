@@ -18,23 +18,12 @@
             color: #58a6ff;
             padding: 40px 10%;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-        }
-        header p {
-            font-size: 1rem;
-            margin-top: 10px;
-            color: #8b949e;
         }
         nav {
             display: flex;
             justify-content: center;
             background-color: #161b22;
             padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         nav a {
             color: #58a6ff;
@@ -42,30 +31,19 @@
             margin: 0 15px;
             font-size: 0.9rem;
             font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
+            position: relative;
         }
         nav a:hover {
-            color: #161b22;
+            color: #0d1117;
             background-color: #58a6ff;
-            padding: 4px 8px;
+            padding: 5px 10px;
             border-radius: 5px;
+            transition: 0.3s ease;
         }
         section {
-            padding: 40px 5%;
-            margin: 0 auto;
+            padding: 40px 10%;
             max-width: 1200px;
-            border-left: 2px solid #003d61;
-            border-right: 2px solid #003d61;
-        }
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #79c0ff;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-        ul {
-            padding-left: 20px;
-            list-style-type: disc;
+            margin: 0 auto;
         }
         .card {
             background: #161b22;
@@ -74,40 +52,31 @@
             border-radius: 10px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            color: #58a6ff;
-        }
-        .card ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: square;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-        }
-        .skill {
-            background: linear-gradient(135deg, #003d61, #58a6ff);
-            color: #ffffff;
-            padding: 8px 15px;
-            margin: 8px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .presentation {
-            margin-top: 15px;
-            text-align: center;
-        }
-        .presentation img {
+        .card img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .skill {
+            background: linear-gradient(135deg, #003d61, #58a6ff);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .skill:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #58a6ff, #003d61);
         }
         footer {
             text-align: center;
@@ -115,20 +84,42 @@
             background-color: #161b22;
             color: #8b949e;
             margin-top: 30px;
-            font-size: 0.8rem;
-            border-top: 2px solid #003d61;
         }
         a[href*="linkedin"] {
-            color: #58a6ff;
+            color: #ffffff;
             font-weight: bold;
-            background-color: #161b22;
-            padding: 4px 8px;
+            text-decoration: none;
+            padding: 5px 10px;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
         a[href*="linkedin"]:hover {
             background-color: #58a6ff;
             color: #161b22;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 5%;
+            }
+            nav {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            nav a {
+                margin: 5px 0;
+                font-size: 0.8rem;
+            }
+            section {
+                padding: 20px 5%;
+            }
+            .card {
+                padding: 15px;
+                margin: 10px 0;
+            }
+            footer {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -144,7 +135,6 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
     </nav>
-
     <section id="about">
         <h2>About Me</h2>
         <p>Hi! I’m Lisa, a results-driven digital marketing specialist with expertise in:</p>
@@ -154,7 +144,6 @@
             <li>Collaborating with global brands like Ferrero and Gigabyte to achieve measurable success.</li>
         </ul>
     </section>
-
     <section id="experience">
         <h2>Experience</h2>
         <div class="card">
@@ -186,7 +175,6 @@
             </ul>
         </div>
     </section>
-
     <section id="projects">
         <h2>Projects</h2>
         <div class="card">
@@ -214,7 +202,6 @@
             </div>
         </div>
     </section>
-
     <section id="skills">
         <h2>Skills</h2>
         <div class="skills">
@@ -229,7 +216,6 @@
             <div class="skill">Creative Optimization</div>
         </div>
     </section>
-
     <section id="contact">
         <h2>Contact Me</h2>
         <ul>
@@ -237,7 +223,6 @@
             <li>LinkedIn: <a href="https://www.linkedin.com/in/lisa-shih" target="_blank">linkedin.com/in/lisa-shih</a></li>
         </ul>
     </section>
-
     <footer>
         <p>&copy; 2025 Lisa Shih. All Rights Reserved.</p>
     </footer>
