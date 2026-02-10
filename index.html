@@ -23,7 +23,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Header & Dashboard */
+    /* Header & Hero */
     header {
       background: radial-gradient(circle at top right, #102a43, #0d1117);
       padding: 80px 10% 40px;
@@ -32,9 +32,10 @@
     }
 
     h1 { font-size: 3rem; margin: 0; background: linear-gradient(120deg, #fff, var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .tagline { font-size: 1.1rem; color: var(--accent-blue); margin-top: 10px; font-weight: 500; }
+    .tagline { font-size: 1.1rem; color: var(--accent-blue); margin-top: 10px; font-weight: 500; letter-spacing: 1px; }
 
-    .kpi-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0; }
+    /* Dashboard Stats */
+    .kpi-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 40px 0; }
     .kpi-card { background: rgba(9, 12, 16, 0.6); border: 1px solid var(--border-color); padding: 20px; border-radius: 12px; }
     .kpi-value { display: block; font-size: 2.2rem; font-weight: 800; color: var(--accent-blue); }
     .kpi-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
@@ -50,14 +51,14 @@
     .card:hover { border-color: var(--accent-blue); }
     .highlight-tag { background: rgba(88, 166, 255, 0.1); color: var(--accent-blue); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
 
-    /* 修正後的專業技術棧排版 */
-    .skills-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .skill-group { background: #0d1117; padding: 20px; border-radius: 10px; border: 1px solid var(--border-color); }
-    .skill-group h4 { color: var(--accent-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+    /* 專業技能區塊優化 */
+    .skills-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .skill-group { background: #090c10; padding: 20px; border-radius: 10px; border: 1px solid var(--border-color); }
+    .skill-group h4 { color: var(--accent-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-size: 1rem; }
     .skills-flex { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
     .skill-tag { background: #21262d; border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff; }
 
-    footer { text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid var(--border-color); }
+    footer { text-align: center; padding: 60px; color: var(--text-muted); border-top: 1px solid var(--border-color); }
   </style>
 </head>
 <body>
@@ -65,17 +66,18 @@
   <header>
     <h1>Lisa Shih</h1>
     <div class="tagline">Senior Growth Lead | Performance & Data Analyst</div>
+    
     <div class="kpi-container">
-      <div class="kpi-card"><span class="kpi-value">12+</span><span class="kpi-label">全球跨國市場營運</span></div>
-      <div class="kpi-card"><span class="kpi-value">$0.13</span><span class="kpi-label">平均點擊成本 (CPC)</span></div>
-      <div class="kpi-card"><span class="kpi-value">< $30</span><span class="kpi-label">電商名單成本 (CPL)</span></div>
-      <div class="kpi-card"><span class="kpi-value">24%</span><span class="kpi-label">商周流量增長率</span></div>
+      <div class="kpi-card"><span class="kpi-value">$0.13</span><span class="kpi-label">X Ads 平均點擊成本</span></div>
+      <div class="kpi-card"><span class="kpi-value">< $30</span><span class="kpi-label">電商名單獲取成本 (CPL)</span></div>
+      <div class="kpi-card"><span class="kpi-value">1.22M</span><span class="kpi-label">Facebook 粉絲管理數</span></div>
+      <div class="kpi-card"><span class="kpi-value">24%</span><span class="kpi-label">網站導流增長率</span></div>
     </div>
   </header>
 
   <nav>
     <a href="#experience">專業經歷</a>
-    <a href="#skills">技術與工具</a>
+    <a href="#skills">技術棧</a>
     <a href="#case-studies">實戰案例</a>
   </nav>
 
@@ -83,21 +85,33 @@
     <h2>專業經歷</h2>
     
     <div class="card">
-      <span class="highlight-tag">2024 - Present</span>
+      <span class="highlight-tag">2024.10 - 2025.05</span>
       <h3>台北數位集團 | Account Manager</h3>
-      <p>主導 Gigabyte 全球 12 市場 X 廣告，維持 $0.13 低成本流量獲取 [cite: 26, 27]。透過 Python 與 AppScript 自動化報表，節省 70% 製作時間 。</p>
+      <ul>
+        [cite_start]<li>主導 <strong>Gigabyte</strong> 全球 12 市場 X 平台廣告，維持連結點擊成本 $0.13 [cite: 26, 27]。</li>
+        [cite_start]<li>運用 <strong>Python</strong> 識別 KPI 相關性，並透過 <strong>Apps Script</strong> 自動化入案通知，顯著提升效率 [cite: 31, 33]。</li>
+        [cite_start]<li>建立 <strong>BigQuery & Looker Studio</strong> 數據看板，強化內部與客戶的即時分析能力 [cite: 32]。</li>
+      </ul>
     </div>
 
     <div class="card">
-      <span class="highlight-tag">2023 - 2024</span>
+      <span class="highlight-tag">2023.10 - 2024.05</span>
       <h3>iProspect | Senior Optimizator</h3>
-      <p>服務 Kering Group 與 Ferrero 等大型客戶 。於電商大檔達成 CPL < $30 [cite: 51]，並成功協商 Google 系統補償維護客戶權益 [cite: 49]。</p>
+      <ul>
+        [cite_start]<li>為 <strong>Kering Group (Gucci等)、Ferrero、WGS</strong> 等頂尖品牌制定進階數位廣告策略 [cite: 47, 48]。</li>
+        [cite_start]<li>於電商大檔期間透過 A/B 測試，達成平均名單獲取成本 (CPL) 低於 <strong>$30</strong> [cite: 51]。</li>
+        [cite_start]<li><strong>危機處理：</strong> 解決 Google 廣告系統高優先級問題，成功爭取平台賠償以保護客戶利益 [cite: 49]。</li>
+        [cite_start]<li>建立跨部門數據儀表板，整合多團隊需求以支持數據驅動決策 [cite: 50]。</li>
+      </ul>
     </div>
 
     <div class="card">
-      <span class="highlight-tag">2024</span>
+      <span class="highlight-tag">2024.05 - 2024.10</span>
       <h3>腦哥 Chill 塊鏈 | Senior Optimizator</h3>
-      <p>執行精準 FB 轉換廣告，於一週內達成 28 筆高價值訂單轉化 [cite: 40]，維持 DAU 於 0.95 以上 [cite: 42]。</p>
+      <ul>
+        [cite_start]<li>設計 FB 轉換廣告並導入 GTM 精準追蹤，一週內達成 28 筆高價值訂單 [cite: 38, 40]。</li>
+        [cite_start]<li>維持日活躍用戶 (DAU) 於 0.95 以上，有效驅動用戶參與 [cite: 42]。</li>
+      </ul>
     </div>
   </section>
 
@@ -105,35 +119,35 @@
     <h2>專業技術棧</h2>
     <div class="skills-section">
       <div class="skill-group">
-        <h4>廣告投放與優化</h4>
+        <h4>廣告投放與媒體策略</h4>
         <div class="skills-flex">
           <span class="skill-tag">X Ads Expert</span>
           <span class="skill-tag">Meta / Google Ads</span>
           <span class="skill-tag">DV360 / Teads</span>
-          <span class="skill-tag">A/B Testing Logic</span>
           <span class="skill-tag">Full-Funnel Strategy</span>
+          <span class="skill-tag">A/B Testing Logic</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <h4>數據追蹤與自動化</h4>
+        <h4>數據追蹤與技術自動化</h4>
         <div class="skills-flex">
-          <span class="skill-tag">GTM Implementation</span>
-          <span class="skill-tag">Google Apps Script</span>
-          <span class="skill-tag">Python (Data Processing)</span>
+          <span class="skill-tag">Google Tag Manager</span>
+          <span class="skill-tag">Apps Script (Automation)</span>
+          <span class="skill-tag">Python (Data Science)</span>
           <span class="skill-tag">BigQuery / SQL</span>
-          <span class="skill-tag">Appsflyer Integration</span>
+          <span class="skill-tag">Appsflyer / Web Tracking</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <h4>商業分析與內容</h4>
+        <h4>數據視覺化與市場分析</h4>
         <div class="skills-flex">
-          <span class="skill-tag">Looker Studio Dashboard</span>
+          <span class="skill-tag">Looker Studio</span>
           <span class="skill-tag">GA4 Analytics</span>
-          <span class="skill-tag">Social CRM</span>
-          <span class="skill-tag">Copywriting (Conversion)</span>
+          <span class="skill-tag">CRM Management</span>
           <span class="skill-tag">Market Research</span>
+          <span class="skill-tag">Copywriting</span>
         </div>
       </div>
     </div>
@@ -142,14 +156,15 @@
   <section id="case-studies">
     <h2>實戰案例</h2>
     <div class="card">
-      <h3>商周社群導流轉型</h3>
-      <p>管理 122 萬粉絲團，提升官網流量 24% 並帶動數位訂閱增長 [cite: 69, 72, 73]。</p>
+      <span class="highlight-tag">流量增長</span>
+      <h3>商業周刊社群營運轉型</h3>
+      [cite_start]<p>管理 Facebook 122 萬粉絲，透過文案優化與導流策略，使官網流量提升 24% 並帶動數位訂閱增長 [cite: 69, 72, 73]。</p>
     </div>
   </section>
 
   <footer>
     <p>Lisa Shih | lisashih850429@gmail.com</p>
-    <p><a href="https://www.linkedin.com/in/lisa-shih" style="color:var(--accent-blue);">LinkedIn Profile</a></p>
+    <p><a href="https://www.linkedin.com/in/lisa-shih" target="_blank" style="color:var(--accent-blue);">LinkedIn Profile</a> | <a href="https://github.com/lisashih/portfolio" target="_blank" style="color:var(--accent-blue);">GitHub Portfolio</a></p>
   </footer>
 
 </body>
