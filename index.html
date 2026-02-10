@@ -3,36 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lisa Shih | Senior Growth & Advertising Lead Portfolio</title>
+  <title>Lisa Shih | Senior Growth & Advertising Lead</title>
   <style>
     :root {
       --bg-color: #0d1117;
       --card-bg: #161b22;
       --accent-blue: #58a6ff;
-      --success-green: #3fb950;
       --text-main: #c9d1d9;
       --text-muted: #8b949e;
     }
 
     body {
-      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: "Inter", "Segoe UI", "PingFang TC", sans-serif;
+      margin: 0; padding: 0;
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    /* Header & Hero */
     header {
       background: radial-gradient(circle at top right, #102a43, #0d1117);
-      padding: 80px 10%;
+      padding: 80px 10% 40px;
       text-align: center;
       border-bottom: 1px solid #30363d;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin: 0;
       background: linear-gradient(120deg, #fff, var(--accent-blue));
       -webkit-background-clip: text;
@@ -44,32 +42,22 @@
       font-size: 1.2rem;
       color: var(--accent-blue);
       font-weight: 500;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
-    .hero-desc {
-      max-width: 700px;
-      margin: 20px auto;
-      color: var(--text-muted);
-    }
-
-    /* Dashboard Style Stats */
     .kpi-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
       margin: 40px 0;
     }
 
     .kpi-card {
-      background: #090c10;
+      background: rgba(9, 12, 16, 0.6);
       border: 1px solid #30363d;
       padding: 20px;
       border-radius: 12px;
-      transition: transform 0.3s;
     }
-
-    .kpi-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
 
     .kpi-value {
       display: block;
@@ -78,19 +66,11 @@
       color: var(--accent-blue);
     }
 
-    .kpi-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .kpi-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
 
-    /* Navigation */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(22, 27, 34, 0.8);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13, 17, 23, 0.9);
       backdrop-filter: blur(10px);
       padding: 15px 0;
       border-bottom: 1px solid #30363d;
@@ -100,154 +80,152 @@
     nav a {
       color: var(--text-main);
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 15px;
       font-size: 0.9rem;
       font-weight: 600;
-      transition: 0.3s;
     }
 
-    nav a:hover { color: var(--accent-blue); }
-
-    /* Sections */
-    section { padding: 60px 10%; max-width: 1100px; margin: 0 auto; }
+    section { padding: 60px 10%; max-width: 1000px; margin: 0 auto; }
 
     h2 {
       font-size: 1.8rem;
-      border-left: 4px solid var(--accent-blue);
+      border-left: 5px solid var(--accent-blue);
       padding-left: 15px;
       margin-bottom: 30px;
     }
 
     .card {
       background: var(--card-bg);
-      padding: 30px;
+      padding: 25px;
       border-radius: 12px;
       margin-bottom: 25px;
       border: 1px solid #30363d;
+      transition: 0.3s;
     }
 
-    .card h3 { margin-top: 0; color: #fff; }
+    .card:hover { border-color: var(--accent-blue); }
+
+    .highlight-tag {
+      background: rgba(88, 166, 255, 0.1);
+      color: var(--accent-blue);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
 
     ul { padding-left: 20px; }
-    li { margin-bottom: 10px; }
+    li { margin-bottom: 8px; }
 
-    /* Skills */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-tag {
       background: #21262d;
       border: 1px solid #30363d;
-      padding: 8px 18px;
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 0.85rem;
-      color: var(--accent-blue);
-      transition: 0.3s;
+      font-size: 0.8rem;
     }
 
-    .skill-tag:hover {
-      background: var(--accent-blue);
-      color: #fff;
-    }
-
-    /* Buttons */
-    .cta-group { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
-    .btn {
-      padding: 12px 25px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .btn-primary { background: var(--accent-blue); color: #fff; }
-    .btn-secondary { border: 1px solid var(--accent-blue); color: var(--accent-blue); }
-    .btn:hover { opacity: 0.8; transform: scale(1.02); }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-muted);
-      border-top: 1px solid #30363d;
-    }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 2.2rem; }
-      section { padding: 40px 5%; }
-      nav a { margin: 0 10px; font-size: 0.8rem; }
-    }
+    footer { text-align: center; padding: 40px; color: var(--text-muted); border-top: 1px solid #30363d; }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Lisa Shih</h1>
-    <div class="tagline">Senior Growth & Advertising Lead | Data-Driven Strategist</div>
-    <p class="hero-desc">
-      專注於全漏斗數位營銷優化。我擅長透過結構化 A/B Testing 與數據自動化工作流，
-      將廣告預算轉化為可預測、可擴展的商業營收，縮短品牌決策週期。
-    </p>
-
+    <div class="tagline">Senior Performance & Growth Lead</div>
+    
     <div class="kpi-container">
       <div class="kpi-card">
-        <span class="kpi-value">12+</span>
-        <span class="kpi-label">Global Markets</span>
-      </div>
-      <div class="kpi-card">
         <span class="kpi-value">$0.13</span>
-        <span class="kpi-label">Avg. CPC (Link)</span>
+        <span class="kpi-label">X Ads Avg. CPC</span>
       </div>
       <div class="kpi-card">
-        <span class="kpi-value">200%</span>
-        <span class="kpi-label">Ops Efficiency提升</span>
+        <span class="kpi-value">< $30</span>
+        <span class="kpi-label">E-com CPL</span>
       </div>
-    </div>
-
-    <div class="cta-group">
-      <a href="#case-studies" class="btn btn-primary">查看實戰案例</a>
-      <a href="#contact" class="btn btn-secondary">聯繫我</a>
+      <div class="kpi-card">
+        <span class="kpi-value">1.22M</span>
+        <span class="kpi-label">Facebook Followers</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-value">0.95+</span>
+        <span class="kpi-label">Course DAU</span>
+      </div>
     </div>
   </header>
 
   <nav>
     <a href="#about">核心價值</a>
     <a href="#experience">專業經歷</a>
+    <a href="#case-studies">實戰案例</a>
     <a href="#skills">技術棧</a>
-    <a href="#contact">聯絡</a>
   </nav>
 
   <section id="about">
-    <h2>關於我：數據與增長的橋樑</h2>
-    <p>
-      我具備跨國廣告投放、追蹤技術部署（Measurement Implementation）及 BI 報表自動化能力。
-      我不僅是廣告操盤手，更擅長從龐雜的數據中提取決策建議。
-    </p>
-
+    <h2>核心價值</h2>
     <div class="card">
-      <h3>核心賦能 (Expertise)</h3>
-      <ul>
-        <li><strong>戰略級投放：</strong> 制定全漏斗（Full-Funnel）行銷佈局，優化學習期成本與預算權重。</li>
-        <li><strong>數據工程化：</strong> 利用 Apps Script 與 BigQuery 自動化報表，讓數據反應速度提升至近乎即時。</li>
-        <li><strong>轉換率優化 (CRO)：</strong> 透過 GTM 追蹤深度事件，優化結帳漏斗及高價值轉化點。</li>
-      </ul>
+      <p>
+        我是一位專注於數據驅動決策的行銷分析專家 [cite: 18, 19]。擅長整合多平台廣告資源（Meta, Google Ads, DV360, X）[cite: 26, 48]，並透過技術手段（Python, Apps Script, BigQuery）優化營運效率 [cite: 31, 32, 33]，協助品牌在複雜市場環境中達成增長目標。
+      </p>
     </div>
   </section>
 
   <section id="experience">
     <h2>專業經歷</h2>
+    
+    <div class="card">
+      <span class="highlight-tag">2024.10 - 2025.05</span>
+      <h3>台北數位集團 | Account Manager</h3>
+      <ul>
+        <li>主導 <strong>Gigabyte</strong> 全球 12 市場 X 平台廣告，維持連結點擊成本 $0.13 [cite: 26, 27]。</li>
+        <li>運用 <strong>Python</strong> 識別 KPI 相關性，並透過 <strong>Apps Script</strong> 自動化入案通知，顯著提升效率 [cite: 31, 33]。</li>
+        <li>建立 <strong>BigQuery & Looker Studio</strong> 數據看板，強化內部與客戶的即時分析能力 [cite: 32]。</li>
+      </ul>
+    </div>
+
+    <div class="card" id="iprospect">
+      <span class="highlight-tag">2023.10 - 2024.05</span>
+      <h3>iProspect | Senior Optimizator</h3>
+      <ul>
+        <li>為 <strong>Kering Group (Gucci等)、Ferrero、WGS</strong> 等頂尖品牌制定進階數位廣告策略 [cite: 47, 48]。</li>
+        <li>於電商大檔期間透過 A/B 測試，達成平均名單獲取成本 (CPL) 低於 <strong>$30</strong> 的卓越表現 [cite: 51]。</li>
+        <li><strong>危機處理與談判：</strong> 解決 Google 廣告系統高優先級問題，並成功爭取平台賠償以保護客戶利益 。</li>
+        <li>建立跨部門數據儀表板，整合多團隊需求以支持數據驅動決策 [cite: 50]。</li>
+      </ul>
+    </div>
 
     <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-        <h3>台北數位集團 | Account Manager</h3>
-        <span style="color: var(--accent-blue);">20XX - Present</span>
-      </div>
-      <p><em>負責 Gigabyte 全球 12 市場 X (Twitter) 廣告戰略與營運</em></p>
+      <span class="highlight-tag">2024.05 - 2024.10</span>
+      <h3>腦哥 Chill 塊鏈 | Senior Optimizator</h3>
       <ul>
-        <li><strong>低成本流量獲取：</strong> 透過精準受眾包與素材動態輪替，長期維持連結點擊成本 $0.13，優於產業平均。</li>
-        <li><strong>高單價轉換策略：</strong> 針對高客單價產品重新建模，於一週內達成 28 筆高價值訂單轉化。</li>
-        <li><strong>流程自動化：</strong> 獨立開發自動化數據抓取腳本，節省團隊 70% 報表製作時間。</li>
+        <li>執行 FB 轉換廣告並導入 GTM 追蹤，於一週內達成 28 筆高價值課程購買 [cite: 38, 40]。</li>
+        <li>維持日活躍用戶 (DAU) 於 0.95 以上，驅動用戶留存與參與 [cite: 42]。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="case-studies">
+    <h2>實戰案例 (Case Studies)</h2>
+    
+    <div class="card">
+      <span class="highlight-tag">流量轉型</span>
+      <h3>商周社群流量增長計畫</h3>
+      <p>管理百萬級 Facebook 粉絲團，將粉絲數推升至 122 萬 [cite: 69, 70]。</p>
+      <ul>
+        <li>透過文案優化與 GA 追蹤，將官網導流效率提升 <strong>24%</strong> [cite: 72, 73]。</li>
+        <li>協作優化商周+ App，將用戶數提升至 14 萬人 [cite: 75, 76]。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="highlight-tag">跨國營運</span>
+      <h3>全球市場廣告自動化</h3>
+      <p>針對 Gigabyte 全球 12 市場進行 A/B 測試優化 [cite: 26, 28]。</p>
+      <ul>
+        <li>導入自動化工作流，將專案處理時間大幅降低 [cite: 31]。</li>
       </ul>
     </div>
   </section>
@@ -255,26 +233,22 @@
   <section id="skills">
     <h2>專業技術棧</h2>
     <div class="skills-grid">
+      <span class="skill-tag">Meta / Google Ads / DV360</span>
       <span class="skill-tag">X (Twitter) Ads Expert</span>
-      <span class="skill-tag">Google Tag Manager</span>
-      <span class="skill-tag">BigQuery / SQL</span>
-      <span class="skill-tag">Looker Studio</span>
-      <span class="skill-tag">Google Apps Script</span>
-      <span class="skill-tag">Python (Data Processing)</span>
-      <span class="skill-tag">A/B Testing Logic</span>
-      <span class="skill-tag">Performance Automation</span>
+      <span class="skill-tag">Google Tag Manager (GTM)</span>
+      <span class="skill-tag">Python (Data Analysis)</span>
+      <span class="skill-tag">Apps Script / BigQuery</span>
+      <span class="skill-tag">Appsflyer / Tracking Implementation</span>
     </div>
   </section>
 
-  <section id="contact" style="text-align: center;">
-    <h2>如何驅動增長</h2>
-    <p>如果您正在尋找具備數據洞察力與自動化思維的資深投手：</p>
-    <a href="mailto:shihyihua@google.com" class="btn btn-primary">可以發送郵件給我</a>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Lisa Shih - Built with Data & Precision</p>
-    <p><a href="#" style="color: var(--text-muted);">LinkedIn</a> | <a href="#" style="color: var(--text-muted);">Portfolio</a></p>
+  <footer id="contact">
+    <p>Lisa Shih | Senior Growth & Advertising Lead</p>
+    <p>
+      <a href="mailto:lisashih850429@gmail.com" style="color:var(--accent-blue);">Email</a> | 
+      <a href="https://www.linkedin.com/in/lisa-shih" target="_blank" style="color:var(--accent-blue);">LinkedIn</a>
+    </p>
+    <p style="font-size: 0.7rem; margin-top: 20px;">&copy; 2026 Lisa Shih. 數據驅動增長。</p>
   </footer>
 
 </body>
