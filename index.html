@@ -43,6 +43,19 @@
         .metric-card:hover {
             transform: translateY(-5px);
         }
+        /* API Key Overlay */
+        #api-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            backdrop-blur: 4px;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -167,8 +180,20 @@
     </section>
 
     <!-- ✨ AI Lab Section -->
-    <section id="ai-lab" class="py-16 bg-blue-50">
+    <section id="ai-lab" class="py-16 bg-blue-50 relative">
         <div class="max-w-6xl mx-auto px-6">
+            <!-- API Key Overlay Mask -->
+            <div id="api-overlay" class="p-8 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-2xl border border-blue-100 max-w-md">
+                    <div class="text-4xl mb-4">🔑</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">啟用 AI 互動功能</h3>
+                    <p class="text-sm text-gray-500 mb-6">為保護隱私，本功能需填入您的 Gemini API Key 即可啟動對話與提案生成。</p>
+                    <input type="password" id="api-key-input" placeholder="貼上您的 API Key..." class="w-full p-3 border rounded-lg mb-4 text-center">
+                    <button onclick="activateAI()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">啟動 AI Lab</button>
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-xs text-blue-500 mt-4 block underline">如何取得免費 API Key？</a>
+                </div>
+            </div>
+
             <div class="text-center mb-10">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">✨ AI Growth Lab</h2>
                 <p class="text-gray-600">詢問 AI 關於上述績效指標的達成手段。</p>
@@ -207,7 +232,7 @@
     </footer>
 
     <script>
-        const apiKey = ""; 
+        let globalApiKey = ""; 
         
         const resumeData = {
             jobs: [
@@ -256,17 +281,40 @@
             skills: ["Python", "SQL", "BigQuery", "GTM/GA4", "X Ads", "GEO/SEO", "Apps Script"]
         };
 
+        function activateAI() {
+            const val = document.getElementById('api-key-input').value.trim();
+            if (val.startsWith("AIza")) {
+                globalApiKey = val;
+                document.getElementById('api-overlay').style.display = 'none';
+            } else {
+                alert("請輸入有效的 Gemini API Key (通常以 AIza 開頭)");
+            }
+        }
+
         async function callGemini(prompt, systemInstruction) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            if (!globalApiKey) return "請先在上方填入 API Key。";
+            
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${globalApiKey}`;
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemInstruction }] }
             };
+            
             try {
-                const response = await fetch(url, { method: 'POST', body: JSON.stringify(payload) });
+                const response = await fetch(url, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload) 
+                });
                 const data = await response.json();
+                if (data.error) {
+                    return `API 錯誤: ${data.error.message}`;
+                }
                 return data.candidates?.[0]?.content?.parts?.[0]?.text || "AI 忙碌中，請稍後。";
-            } catch (e) { return "連線失敗。"; }
+            } catch (e) { 
+                console.error(e);
+                return "連線失敗，請檢查 API Key 是否正確。"; 
+            }
         }
 
         function renderTimeline() {
