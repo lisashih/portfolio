@@ -43,18 +43,20 @@
         .metric-card:hover {
             transform: translateY(-5px);
         }
-        /* API Key Overlay */
         #api-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.9);
-            z-index: 20;
+            z-index: 50;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             border-radius: 1rem;
-            backdrop-blur: 4px;
+            backdrop-filter: blur(4px);
+        }
+        #api-overlay.hidden {
+            display: none;
         }
     </style>
 </head>
@@ -77,16 +79,18 @@
     <header id="hero" class="pt-20 pb-10 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <div class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-widest text-orange-700 uppercase bg-orange-100 rounded-full">
-                AI & Data Driven Portfolio
+                Senior Growth & Advertising Lead
             </div>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-                <span class="text-orange-700">Performance</span> Dashboard
+                <span class="text-orange-700">Lisa Shih</span> Portfolio
             </h1>
-            <p class="text-lg text-gray-600 mb-8">結合中文系語意洞察與 Python 工程技術的流量專家</p>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                結合中文系語意洞察與 Python 工程技術。擅長搜尋意圖分析、全漏斗媒體佈局及流程自動化。
+            </p>
         </div>
     </header>
 
-    <!-- 📊 Performance Dashboard Section -->
+    <!-- 📊 Performance Dashboard -->
     <section id="dashboard" class="py-12 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex items-center gap-3 mb-10">
@@ -95,42 +99,35 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <!-- CPC Card -->
                 <div class="metric-card p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
                     <div class="text-gray-500 text-sm font-bold uppercase mb-2">連結點擊成本 (CPC)</div>
                     <div class="text-5xl font-bold text-orange-700 mb-2">$0.13</div>
                     <div class="text-xs text-green-600 font-bold">↓ 較行業平均低 65%</div>
                     <p class="text-xs text-gray-400 mt-4">Gigabyte 全球 12 市場 X 廣告</p>
                 </div>
-
-                <!-- CPL Card -->
                 <div class="metric-card p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
                     <div class="text-gray-500 text-sm font-bold uppercase mb-2">名單獲取成本 (CPL)</div>
                     <div class="text-5xl font-bold text-blue-900 mb-2">&lt;$30</div>
                     <div class="text-xs text-green-600 font-bold">優於精品電商大檔預期</div>
-                    <p class="text-xs text-gray-400 mt-4">Kering Group (Gucci, YSL) 專案</p>
+                    <p class="text-xs text-gray-400 mt-4">Kering Group 精品專案</p>
                 </div>
-
-                <!-- Growth Card -->
                 <div class="metric-card p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-                    <div class="text-gray-500 text-sm font-bold uppercase mb-2">自然流量增長 (Organic)</div>
+                    <div class="text-gray-500 text-sm font-bold uppercase mb-2">自然流量增長</div>
                     <div class="text-5xl font-bold text-green-700 mb-2">+24%</div>
                     <div class="text-xs text-green-600 font-bold">SEO 與內容優化成果</div>
                     <p class="text-xs text-gray-400 mt-4">商業周刊品牌經營期間</p>
                 </div>
             </div>
 
-            <!-- Dashboard Visualization -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="bg-gray-50 p-6 rounded-2xl border">
                     <h3 class="font-bold mb-4 text-gray-700">媒體投放效率對比</h3>
                     <div class="chart-container">
                         <canvas id="efficiencyChart"></canvas>
                     </div>
-                    <p class="text-xs text-gray-500 mt-4">註：數據反映特定專案優化後與基準值之差異。</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-2xl border text-gray-800">
-                    <h3 class="font-bold mb-4 text-gray-700">數據優化技術棧應用</h3>
+                    <h3 class="font-bold mb-4 text-gray-700">數據優化技術應用</h3>
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between text-sm mb-1">
@@ -150,18 +147,9 @@
                                 <div class="bg-blue-800 h-2 rounded-full" style="width: 90%"></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span>GEO / AI 搜尋優化布局</span>
-                                <span class="font-bold">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
                     </div>
                     <div class="mt-8 p-4 bg-white rounded-lg border-l-4 border-orange-700 italic text-sm text-gray-600">
-                        「我不僅僅是投放廣告，更透過 Python 實現自動化入案系統，將繁瑣的數據整理轉化為高價值的增長策略。」
+                        「我不僅是投廣告，更透過 Python 實現自動化系統，將繁瑣整理轉化為增長策略。」
                     </div>
                 </div>
             </div>
@@ -173,8 +161,10 @@
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-gray-900 mb-8">Professional Journey</h2>
             <div class="flex flex-col md:flex-row gap-8">
+                <!-- 公司列表 -->
                 <div class="w-full md:w-1/3 space-y-3" id="job-list"></div>
-                <div class="w-full md:w-2/3 bg-white p-8 rounded-lg min-h-[450px] shadow-sm" id="job-detail-panel"></div>
+                <!-- 詳細內容面板 -->
+                <div class="w-full md:w-2/3 bg-white p-8 rounded-lg min-h-[450px] shadow-sm border border-gray-100" id="job-detail-panel"></div>
             </div>
         </div>
     </section>
@@ -182,12 +172,12 @@
     <!-- ✨ AI Lab Section -->
     <section id="ai-lab" class="py-16 bg-blue-50 relative">
         <div class="max-w-6xl mx-auto px-6">
-            <!-- API Key Overlay Mask -->
+            
             <div id="api-overlay" class="p-8 text-center">
-                <div class="bg-white p-8 rounded-2xl shadow-2xl border border-blue-100 max-w-md">
+                <div class="bg-white p-8 rounded-2xl shadow-2xl border border-blue-100 max-w-md w-full">
                     <div class="text-4xl mb-4">🔑</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">啟用 AI 互動功能</h3>
-                    <p class="text-sm text-gray-500 mb-6">為保護隱私，本功能需填入您的 Gemini API Key 即可啟動對話與提案生成。</p>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">啟動 AI 互動履歷</h3>
+                    <p class="text-sm text-gray-500 mb-6">填入您的 Gemini API Key 即可啟動對話。這展示了我處理敏感數據時的資安與權限控管意識。</p>
                     <input type="password" id="api-key-input" placeholder="貼上您的 API Key..." class="w-full p-3 border rounded-lg mb-4 text-center">
                     <button onclick="activateAI()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">啟動 AI Lab</button>
                     <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-xs text-blue-500 mt-4 block underline">如何取得免費 API Key？</a>
@@ -196,21 +186,19 @@
 
             <div class="text-center mb-10">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">✨ AI Growth Lab</h2>
-                <p class="text-gray-600">詢問 AI 關於上述績效指標的達成手段。</p>
+                <p class="text-gray-600">透過 AI 模擬我的思維，詢問任何關於專案執行與增長邏輯的問題。</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- AI Chatbot -->
                 <div class="bg-white p-6 rounded-2xl shadow-xl ai-glow flex flex-col h-[500px]">
                     <h3 class="text-xl font-bold mb-3 flex items-center gap-2">💬 數據達成邏輯詢問</h3>
                     <div id="chat-history" class="flex-1 overflow-y-auto mb-4 p-4 bg-gray-50 rounded border text-sm space-y-3 ai-output-container">
-                        <div class="text-blue-600 italic">您可以問：「妳是如何將 CPC 降到 $0.13 的？」</div>
+                        <div class="text-gray-400 italic">等待 AI 啟動中...</div>
                     </div>
                     <div class="flex gap-2">
                         <input type="text" id="chat-input" placeholder="詢問達成細節..." class="flex-1 p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400">
                         <button onclick="askAI()" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition font-bold">發送</button>
                     </div>
                 </div>
-                <!-- Strategy Gen -->
                 <div class="bg-white p-6 rounded-2xl shadow-xl ai-glow flex flex-col h-[500px]">
                     <h3 class="text-xl font-bold mb-3 flex items-center gap-2">🚀 模擬增長提案</h3>
                     <div class="flex gap-2 mb-4">
@@ -228,7 +216,11 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 text-center">
         <p class="opacity-70">Lisa Shih | Senior Growth & Advertising Lead</p>
-        <p class="text-sm mt-2">lisashih850429@gmail.com</p>
+        <div class="flex justify-center gap-4 mt-4 text-sm">
+            <span>lisashih850429@gmail.com</span>
+            <span>|</span>
+            <span>台北市, 台灣</span>
+        </div>
     </footer>
 
     <script>
@@ -237,91 +229,102 @@
         const resumeData = {
             jobs: [
                 {
-                    company: "台北數位集團 (Taipei Digital)",
-                    role: "Account Manager",
+                    company: "台北數位集團", 
+                    role: "Account Manager", 
                     period: "2024.10 - 2025.05",
                     highlights: [
-                        "主導 **Gigabyte 全球 12 市場 X 廣告**戰略，CPC 穩定維持於 **$0.13**。",
-                        "運用 **Python 進行 KPI 相關性建模**，並開發自動化系統提升運營效率。",
-                        "整合 **BigQuery & Looker Studio** 建立實時戰情室，提供精準歸因。",
-                        "撰寫雙語 Appsflyer 技術手冊，解決 App 追蹤技術痛點。"
+                        "<b>數據決策自動化</b>：自主開發 Apps Script 與 Python KPI 建模，大幅縮短報表整理時間。",
+                        "<b>全球流量操盤</b>：主導 Gigabyte 全球 12 市場 X 廣告，CPC 控制於 $0.13。",
+                        "<b>技術歸因佈建</b>：整合 BigQuery & Looker Studio，並編寫雙語 Appsflyer 技術手冊解決追蹤痛點。"
                     ]
                 },
                 {
-                    company: "腦哥 Chill 塊鏈",
-                    role: "Senior Optimizator",
+                    company: "腦哥 Chill 塊鏈", 
+                    role: "Senior Optimizator", 
                     period: "2024.05 - 2024.10",
                     highlights: [
-                        "佈建 **FB 轉換廣告**並導入 GTM 事件追蹤，首週達成 28 筆高價值成交。",
-                        "維持產品日活躍用戶 (**DAU) 於 0.95 以上**。",
-                        "監測數據波動，驅動 Web3 用戶參與增長。"
+                        "<b>Web3 轉化優化</b>：首週達成 28 筆高價值成交，從零佈建 GTM 事件追蹤。",
+                        "<b>用戶留存經營</b>：維持 DAU 穩定於 0.95 以上，精準監測數據波動驅動參與。"
                     ]
                 },
                 {
-                    company: "電通 iProspect",
-                    role: "Senior Optimizator",
+                    company: "iProspect (電通集團)", 
+                    role: "Senior Optimizator", 
                     period: "2023.10 - 2024.05",
                     highlights: [
-                        "服務 **Kering 精品集團 (Gucci, YSL)**，電商大檔 **CPL < $30**。",
-                        "處理 Google 系統故障提取精確數據證據，成功爭取媒體補償。",
-                        "負責全漏斗媒體佈局與技術歸因監控。"
+                        "<b>頂級精品策略</b>：服務 Kering Group (Gucci, YSL)，電商大檔 CPL < $30。",
+                        "<b>技術爭議解決</b>：針對 Google 系統故障提取精確數據證據，成功為客戶爭取補償。"
                     ]
                 },
                 {
-                    company: "商業周刊 (Business Weekly)",
-                    role: "Social Media Editor",
+                    company: "商業周刊", 
+                    role: "社群編輯", 
                     period: "2021.10 - 2022.06",
                     highlights: [
-                        "透過內容與 **SEO 佈局讓官網流量成長 24%**。",
-                        "協助商周+ App 運營，推升用戶數至 **140,000 人**。",
-                        "將政大中文系語意邏輯應用於高效文案策略。"
+                        "<b>自然流量增長</b>：靠內容優化與 SEO 佈局讓官網流量成長 24%。",
+                        "<b>App 增長營運</b>：將 CRM 概念融入社群，經營商周+ App 用戶至 140,000 人。"
                     ]
                 }
-            ],
-            skills: ["Python", "SQL", "BigQuery", "GTM/GA4", "X Ads", "GEO/SEO", "Apps Script"]
+            ]
         };
 
         function activateAI() {
             const val = document.getElementById('api-key-input').value.trim();
             if (val.startsWith("AIza")) {
                 globalApiKey = val;
-                document.getElementById('api-overlay').style.display = 'none';
+                document.getElementById('api-overlay').classList.add('hidden');
+                document.getElementById('chat-history').innerHTML = '<div class="text-blue-600 font-bold italic">✨ AI 已成功啟動！您可以問我：「妳是如何在電通將 CPL 壓低到 $30 以下的？」</div>';
             } else {
-                alert("請輸入有效的 Gemini API Key (通常以 AIza 開頭)");
+                alert("請輸入有效的 Gemini API Key");
             }
         }
 
         async function callGemini(prompt, systemInstruction) {
-            if (!globalApiKey) return "請先在上方填入 API Key。";
-            
+            if (!globalApiKey) return "請先啟動 AI Lab。";
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${globalApiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemInstruction }] }
-            };
-            
             try {
                 const response = await fetch(url, { 
                     method: 'POST', 
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload) 
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        systemInstruction: { parts: [{ text: systemInstruction }] }
+                    }) 
                 });
                 const data = await response.json();
-                if (data.error) {
-                    return `API 錯誤: ${data.error.message}`;
-                }
-                return data.candidates?.[0]?.content?.parts?.[0]?.text || "AI 忙碌中，請稍後。";
+                if (data.error) return `API 錯誤: ${data.error.message}`;
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || "AI 回應為空。";
             } catch (e) { 
-                console.error(e);
-                return "連線失敗，請檢查 API Key 是否正確。"; 
+                return "連線失敗，請檢查網路。"; 
             }
+        }
+
+        async function askAI() {
+            const input = document.getElementById('chat-input');
+            const history = document.getElementById('chat-history');
+            const q = input.value.trim(); if (!q) return;
+            history.innerHTML += `<div class="bg-white p-2 rounded shadow-sm border"><b>您：</b>${q}</div>`;
+            input.value = "";
+            history.scrollTop = history.scrollHeight;
+            const res = await callGemini(q, `你是 Lisa Shih。基於以下完整履歷內容回答，語氣專業且自信：${JSON.stringify(resumeData)}`);
+            history.innerHTML += `<div class="bg-blue-50 p-2 rounded border border-blue-100"><b>✨ Lisa：</b>${res}</div>`;
+            history.scrollTop = history.scrollHeight;
+        }
+
+        async function generateStrategy() {
+            const input = document.getElementById('industry-input');
+            const result = document.getElementById('strategy-result');
+            const p = input.value.trim(); if (!p) return;
+            result.innerText = "分析中，正在根據 Lisa 的專業背景生成增長提案...";
+            const res = await callGemini(`產品品類：${p}，請提供一份包含媒體佈局與技術優化的增長提案。`, `你是專業成長專家 Lisa Shih。`);
+            result.innerText = res;
         }
 
         function renderTimeline() {
             const list = document.getElementById('job-list');
             resumeData.jobs.forEach((job, i) => {
                 const div = document.createElement('div');
-                div.className = `timeline-node p-4 border-l-4 cursor-pointer mb-2 ${i===0?'active':''}`;
+                div.className = `timeline-node p-4 border-l-4 cursor-pointer mb-2 bg-gray-50/50 ${i===0?'active':''}`;
                 div.innerHTML = `<div class="font-bold text-gray-800">${job.company}</div><div class="text-xs text-gray-500">${job.period}</div>`;
                 div.onclick = () => selectJob(i, div);
                 list.appendChild(div);
@@ -333,34 +336,18 @@
             document.querySelectorAll('.timeline-node').forEach(n => n.classList.remove('active'));
             el.classList.add('active');
             const job = resumeData.jobs[index];
-            const detail = document.getElementById('job-detail-panel');
-            detail.innerHTML = `
-                <h3 class="text-2xl font-bold text-gray-900">${job.role}</h3>
-                <div class="text-orange-700 font-medium mb-4">${job.company}</div>
-                <ul class="space-y-4">
-                    ${job.highlights.map(h => `<li class="flex items-start text-gray-700 leading-relaxed"><span class="mr-2 text-orange-500">▶</span><span>${h.replace(/\*\*(.*?)\*\*/g, '<strong class="text-black">$1</strong>')}</span></li>`).join('')}
-                </ul>
+            document.getElementById('job-detail-panel').innerHTML = `
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">${job.role}</h3>
+                    <div class="text-orange-700 font-medium">${job.company} | ${job.period}</div>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-800 border-b pb-2">核心成就與職責</h4>
+                    <ul class="space-y-4 text-gray-700">
+                        ${job.highlights.map(h => `<li class="flex gap-2"><span>▶</span> <span>${h}</span></li>`).join('')}
+                    </ul>
+                </div>
             `;
-        }
-
-        async function askAI() {
-            const input = document.getElementById('chat-input');
-            const history = document.getElementById('chat-history');
-            const q = input.value.trim(); if (!q) return;
-            history.innerHTML += `<div class="bg-white p-2 rounded shadow-sm"><b>您：</b>${q}</div>`;
-            input.value = "";
-            const res = await callGemini(q, `你是 Lisa。基於數據回答達成細節：CPC $0.13(透過全球布局與技術建模達成), CPL $30(精品大檔歸因優化), 自然流量+24%。數據背景：${JSON.stringify(resumeData)}`);
-            history.innerHTML += `<div class="bg-blue-50 p-2 rounded border border-blue-100"><b>✨ Lisa：</b>${res}</div>`;
-            history.scrollTop = history.scrollHeight;
-        }
-
-        async function generateStrategy() {
-            const input = document.getElementById('industry-input');
-            const result = document.getElementById('strategy-result');
-            const p = input.value.trim(); if (!p) return;
-            result.innerText = "生成中...";
-            const res = await callGemini(`產品：${p}，請以 Lisa 的風格提供增長提案。`, `你是專業成長專家 Lisa Shih。`);
-            result.innerText = res;
         }
 
         function initCharts() {
@@ -368,23 +355,23 @@
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Global X CPC', 'Industry Avg CPC', 'Luxury CPL', 'Industry Avg CPL'],
+                    labels: ['Lisa CPC', 'Avg CPC', 'Lisa CPL', 'Avg CPL'],
                     datasets: [{
                         label: '成本效益 ($)',
                         data: [0.13, 0.45, 28, 65],
-                        backgroundColor: ['#C05621', '#E2E8F0', '#2C5282', '#E2E8F0']
+                        backgroundColor: ['#C05621', '#E2E8F0', '#2C5282', '#E2E8F0'],
+                        borderRadius: 5
                     }]
                 },
-                options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+                options: { 
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true } }
+                }
             });
         }
 
         function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
-
-        window.onload = () => {
-            renderTimeline();
-            initCharts();
-        };
+        window.onload = () => { renderTimeline(); initCharts(); };
     </script>
 </body>
 </html>
